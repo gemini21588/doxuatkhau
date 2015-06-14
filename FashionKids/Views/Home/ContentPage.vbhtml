@@ -11,4 +11,3 @@ End If
 <div id="contentPage">
     @Html.Raw(Model.Content.Content1)
 </div>
-<a href="~/Views/Home/Contact.vbhtml">~/Views/Home/Contact.vbhtml</a>

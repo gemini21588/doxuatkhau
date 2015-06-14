@@ -51,11 +51,17 @@
         Public Const TimKiem As String = "TimKiem"
         Public Const TimKiemRoute As String = "tim-kiem"
 
-        Public Const QuiDinhMuaHang As String = "QuiDinhMuaHang"
-        Public Const QuiDinhMuaHangRoute As String = "qui-dinh-mua-hang"
+        Public Const HuongDanMuaHang As String = "HuongDanMuaHang"
+        Public Const HuongDanMuaHangRoute As String = "huong-dan-mua-hang"
 
-        Public Const PhuongThucThanhToan As String = "PhuongThucThanhToan"
-        Public Const PhuongThucThanhToanRoute As String = "phuong-thuc-thanh-toan"
+        Public Const TaiKhoanNganHang As String = "TaiKhanNganHang"
+        Public Const TaiKhoanNganHangRoute As String = "tai-khoan-ngan-hang"
+
+        Public Const ChinhSachDoiTraHang As String = "ChinhSachDoiTraHang"
+        Public Const ChinhSachDoiTraHangRoute As String = "chinh-sach-doi-tra-hang"
+
+        Public Const HopTacKinhDoanh As String = "HopTacKinhDoanh"
+        Public Const HopTacKinhDoanhRoute As String = "hop-tac-kinh-doanh"
     End Class
 
     Public Enum MenuLevel

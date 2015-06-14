@@ -57,7 +57,6 @@ Public Class AccountController
     '
     ' GET: /Account/Register
 
-    <AllowAnonymous()> _
     Public Function Register() As ActionResult
         Return View()
     End Function
@@ -65,7 +64,6 @@ Public Class AccountController
     '
     ' POST: /Account/Register
 
-    <AllowAnonymous()> _
     <HttpPost()> _
     <ValidateAntiForgeryToken()> _
     Public Function Register(ByVal model As RegisterModel) As ActionResult

@@ -123,10 +123,10 @@
                     <i class="fa fa-info-circle"></i>&nbsp;Thông tin mua bán
                 </div>
                 <ul id="TradeInformation" class="cmt-border">
-                    <li><a href="@Url.RouteUrl(ChoMayTinh.Constants.Route.QuiDinhMuaHang)/"><i class="fa fa-minus"></i>&nbsp;Hướng dẫn mua hàng</a></li>
-                    <li><a href="@Url.RouteUrl(ChoMayTinh.Constants.Route.PhuongThucThanhToan)/"><i class="fa fa-minus"></i>&nbsp;Tài khoản ngân hàng</a></li>
-                    <li><a href="#"><i class="fa fa-minus"></i>&nbsp;Chính sách đổi trả hàng</a></li>
-                    <li><a href="#"><i class="fa fa-minus"></i>&nbsp;Hợp tác kinh doanh</a></li>
+                    <li><a href="@Url.RouteUrl(ChoMayTinh.Constants.Route.HuongDanMuaHang)/"><i class="fa fa-minus"></i>&nbsp;@ConfigurationManager.AppSettings(ChoMayTinh.Constants.Route.HuongDanMuaHangRoute)</a></li>
+                    <li><a href="@Url.RouteUrl(ChoMayTinh.Constants.Route.TaiKhoanNganHang)/"><i class="fa fa-minus"></i>&nbsp;@ConfigurationManager.AppSettings(ChoMayTinh.Constants.Route.TaiKhoanNganHangRoute)</a></li>
+                    <li><a href="@Url.RouteUrl(ChoMayTinh.Constants.Route.ChinhSachDoiTraHang)/"><i class="fa fa-minus"></i>&nbsp;@ConfigurationManager.AppSettings(ChoMayTinh.Constants.Route.ChinhSachDoiTraHangRoute)</a></li>
+                    <li><a href="@Url.RouteUrl(ChoMayTinh.Constants.Route.HopTacKinhDoanh)/"><i class="fa fa-minus"></i>&nbsp;@ConfigurationManager.AppSettings(ChoMayTinh.Constants.Route.HopTacKinhDoanhRoute)</a></li>
                 </ul>
 
                 @********** THONG TIN CAN BIET *********@

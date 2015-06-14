@@ -34,15 +34,27 @@ Public Class RouteConfig
         )
 
         routes.MapRoute( _
-            name:=Constants.Route.QuiDinhMuaHang, _
-            url:=Constants.Route.QuiDinhMuaHangRoute, _
-            defaults:=New With {.controller = "Home", .action = "ContentPage", .link = Constants.Route.QuiDinhMuaHangRoute} _
+            name:=Constants.Route.HuongDanMuaHang, _
+            url:=Constants.Route.HuongDanMuaHangRoute, _
+            defaults:=New With {.controller = "Home", .action = "ContentPage", .link = Constants.Route.HuongDanMuaHangRoute} _
         )
 
         routes.MapRoute( _
-            name:=Constants.Route.PhuongThucThanhToan, _
-            url:=Constants.Route.PhuongThucThanhToanRoute, _
-            defaults:=New With {.controller = "Home", .action = "ContentPage", .link = Constants.Route.PhuongThucThanhToanRoute} _
+            name:=Constants.Route.TaiKhoanNganHang, _
+            url:=Constants.Route.TaiKhoanNganHangRoute, _
+            defaults:=New With {.controller = "Home", .action = "ContentPage", .link = Constants.Route.TaiKhoanNganHangRoute} _
+        )
+
+        routes.MapRoute( _
+            name:=Constants.Route.ChinhSachDoiTraHang, _
+            url:=Constants.Route.ChinhSachDoiTraHangRoute, _
+            defaults:=New With {.controller = "Home", .action = "ContentPage", .link = Constants.Route.ChinhSachDoiTraHangRoute} _
+        )
+
+        routes.MapRoute( _
+            name:=Constants.Route.HopTacKinhDoanh, _
+            url:=Constants.Route.HopTacKinhDoanhRoute, _
+            defaults:=New With {.controller = "Home", .action = "ContentPage", .link = Constants.Route.HopTacKinhDoanhRoute} _
         )
 
         routes.MapRoute( _

@@ -46,11 +46,14 @@
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action("Editor", "Management", New With {.id = "lien-he"})">@ConfigurationManager.AppSettings("lien-he")</a></li>
                             <li><a href="@Url.Action("Editor", "Management", New With {.id = "gioi-thieu"})">@ConfigurationManager.AppSettings("gioi-thieu")</a></li>
-                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "qui-dinh-mua-hang"})">@ConfigurationManager.AppSettings("huong-dan")</a></li>
-                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "phuong-thuc-thanh-toan"})">@ConfigurationManager.AppSettings("phuong-thuc-thanh-toan")</a></li>
+                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "huong-dan-mua-hang"})">@ConfigurationManager.AppSettings("huong-dan-mua-hang")</a></li>
+                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "tai-khoan-ngan-hang"})">@ConfigurationManager.AppSettings("tai-khoan-ngan-hang")</a></li>
+                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "chinh-sach-doi-tra-hang"})">@ConfigurationManager.AppSettings("chinh-sach-doi-tra-hang")</a></li>
+                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "hop-tac-kinh-doanh"})">@ConfigurationManager.AppSettings("hop-tac-kinh-doanh")</a></li>
                         </ul>
                       </li>
                     <li><a href="@Url.Action("Editor", "Management", New With {.id = "quang-cao"})">@ConfigurationManager.AppSettings("quang-cao")</a></li>
+                    <li><a href="@Url.Action("SlideShow", "Management")">Quản lý slide show</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li>
