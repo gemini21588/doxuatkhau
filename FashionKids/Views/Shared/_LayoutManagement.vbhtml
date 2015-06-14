@@ -46,7 +46,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action("Editor", "Management", New With {.id = "lien-he"})">@ConfigurationManager.AppSettings("lien-he")</a></li>
                             <li><a href="@Url.Action("Editor", "Management", New With {.id = "gioi-thieu"})">@ConfigurationManager.AppSettings("gioi-thieu")</a></li>
-                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "qui-dinh-mua-hang"})">@ConfigurationManager.AppSettings("qui-dinh-mua-hang")</a></li>
+                            <li><a href="@Url.Action("Editor", "Management", New With {.id = "qui-dinh-mua-hang"})">@ConfigurationManager.AppSettings("huong-dan")</a></li>
                             <li><a href="@Url.Action("Editor", "Management", New With {.id = "phuong-thuc-thanh-toan"})">@ConfigurationManager.AppSettings("phuong-thuc-thanh-toan")</a></li>
                         </ul>
                       </li>
