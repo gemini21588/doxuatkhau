@@ -1,0 +1,29 @@
+﻿#customerInfo {
+    padding-left: 10px;
+}
+
+#tb-order label {
+    display: inline;
+}
+
+#tb-order td {
+    vertical-align: baseline;
+}
+
+#tb-order tr td:first-child {
+    text-align: right;
+    padding-right: 10px;
+}
+
+#tb-order input, textarea {
+    width: 400px !important;
+}
+
+#validation-message-span {
+    color: red;
+    padding: 10px;
+}
+
+.input-error {
+    border: 1px solid red !important;
+}

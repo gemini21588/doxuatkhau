@@ -1,0 +1,13 @@
+﻿#tblMenuLevel thead td {
+    font-weight: bold;
+}
+
+
+#tblMenuLevel form {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#frmAddMenu input {
+    width: 400px;
+}

@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ChoMayTinh.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ChoMayTinhStoreContainer">
+          <EntitySet Name="Categories" EntityType="ChoMayTinh.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contents" EntityType="ChoMayTinh.Store.Contents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Makers" EntityType="ChoMayTinh.Store.Makers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="ChoMayTinh.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="ChoMayTinh.Store.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderDetail" EntityType="ChoMayTinh.Store.OrderDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="ChoMayTinh.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SlideShow" EntityType="ChoMayTinh.Store.SlideShow" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_OrderDetail_Order" Association="ChoMayTinh.Store.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="ChoMayTinh.Store.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Makers" Association="ChoMayTinh.Store.FK_Products_Makers">
+            <End Role="Makers" EntitySet="Makers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Link" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AdDate" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="UdDate" Type="datetime2" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Contents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Makers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Link" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AdDate" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="UdDate" Type="datetime2" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Link" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="Summary" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Tag" Type="nvarchar(max)" />
+          <Property Name="AdDate" Type="datetime2" Nullable="false" />
+          <Property Name="UdDate" Type="datetime2" Nullable="false" />
+          <Property Name="IsHomePage" Type="bit" />
+          <Property Name="IsNews" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Tel" Type="varchar" Nullable="false" MaxLength="11" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsProcessed" Type="bit" />
+          <Property Name="AdDate" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="UdDate" Type="datetime2" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Guid" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Guid" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="MakerId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Link" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Image" Type="varchar(max)" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="255" />
+          <Property Name="Size" Type="nvarchar" MaxLength="255" />
+          <Property Name="OldPrice" Type="decimal" />
+          <Property Name="NewPrice" Type="decimal" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="255" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="255" />
+          <Property Name="Info" Type="nvarchar(max)" />
+          <Property Name="AdDate" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="UdDate" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="IsHomePage" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SlideShow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="Link" Type="varchar(max)" />
+          <Property Name="AdDate" Type="datetime2" />
+          <Property Name="UdDate" Type="datetime2" />
+        </EntityType>
+        <Association Name="FK_OrderDetail_Order">
+          <End Role="Order" Type="ChoMayTinh.Store.Order" Multiplicity="1" />
+          <End Role="OrderDetail" Type="ChoMayTinh.Store.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="Guid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="ChoMayTinh.Store.Categories" Multiplicity="1" />
+          <End Role="Products" Type="ChoMayTinh.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Makers">
+          <End Role="Makers" Type="ChoMayTinh.Store.Makers" Multiplicity="1" />
+          <End Role="Products" Type="ChoMayTinh.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="MakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pCategory" Type="varchar" Mode="In" />
+          <Parameter Name="pMaker" Type="varchar" Mode="In" />
+          <Parameter Name="pProduct" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetProductList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pCategory" Type="varchar" Mode="In" />
+          <Parameter Name="pMaker" Type="varchar" Mode="In" />
+          <Parameter Name="pCurrentPage" Type="int" Mode="In" />
+          <Parameter Name="pProductPerPage" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SearchProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pQuery" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChoMayTinh" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="siteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Makers" EntityType="ChoMayTinh.Maker" />
+          <EntitySet Name="Products" EntityType="ChoMayTinh.Product" />
+          <AssociationSet Name="FK_Products_Makers" Association="ChoMayTinh.FK_Products_Makers">
+            <End Role="Makers" EntitySet="Makers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="ChoMayTinh.Category" />
+          <AssociationSet Name="FK_Products_Categories" Association="ChoMayTinh.FK_Products_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="ChoMayTinh.Order" />
+          <EntitySet Name="OrderDetails" EntityType="ChoMayTinh.OrderDetail" />
+          <AssociationSet Name="FK_OrderDetail_Order" Association="ChoMayTinh.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Products" Association="ChoMayTinh.FK_OrderDetail_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <EntitySet Name="SlideShows" EntityType="ChoMayTinh.SlideShow" />
+          <EntitySet Name="Contents" EntityType="ChoMayTinh.Content" />
+          <FunctionImport Name="GetProduct" ReturnType="Collection(ChoMayTinh.GetProduct_Result)">
+            <Parameter Name="pCategory" Mode="In" Type="String" />
+            <Parameter Name="pMaker" Mode="In" Type="String" />
+            <Parameter Name="pProduct" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetProductList" ReturnType="Collection(ChoMayTinh.GetProductList_Result)">
+            <Parameter Name="pCategory" Mode="In" Type="String" />
+            <Parameter Name="pMaker" Mode="In" Type="String" />
+            <Parameter Name="pCurrentPage" Mode="In" Type="Int32" />
+            <Parameter Name="pProductPerPage" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SearchProduct" ReturnType="Collection(ChoMayTinh.GetProductList_Result)">
+          <Parameter Name="pQuery" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="News" EntityType="ChoMayTinh.News" />
+          <FunctionImport Name="GetMenu" ReturnType="Collection(ChoMayTinh.GetMenu_Result)" />
+          </EntityContainer>
+        <EntityType Name="Maker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="AdDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UdDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Products" Relationship="ChoMayTinh.FK_Products_Makers" FromRole="Makers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="MakerId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Color" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Size" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="OldPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NewPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Condition" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Origin" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Info" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AdDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UdDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Maker" Relationship="ChoMayTinh.FK_Products_Makers" FromRole="Products" ToRole="Makers" />
+          <NavigationProperty Name="Category" Relationship="ChoMayTinh.FK_Products_Categories" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="OrderDetails" Relationship="ChoMayTinh.FK_OrderDetail_Products" FromRole="Product" ToRole="OrderDetail" />
+          <Property Type="Boolean" Name="IsHomePage" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Products_Makers">
+          <End Role="Makers" Type="ChoMayTinh.Maker" Multiplicity="1" />
+          <End Role="Products" Type="ChoMayTinh.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="MakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Link" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="AdDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="UdDate" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Products" Relationship="ChoMayTinh.FK_Products_Categories" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Products_Categories">
+          <End Type="ChoMayTinh.Category" Role="Category" Multiplicity="1" />
+          <End Type="ChoMayTinh.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Type="String" Name="Guid" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CustomerName" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="String" Name="Tel" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="String" Name="Note" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsProcessed" />
+          <NavigationProperty Name="OrderDetails" Relationship="ChoMayTinh.FK_OrderDetail_Order" FromRole="Order" ToRole="OrderDetail" />
+          <Property Type="DateTime" Name="AdDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="UdDate" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Guid" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Guid" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="ProductId" />
+          <Property Type="Int32" Name="Quantity" />
+          <NavigationProperty Name="Order" Relationship="ChoMayTinh.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="ChoMayTinh.FK_OrderDetail_Products" FromRole="OrderDetail" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_OrderDetail_Order">
+          <End Type="ChoMayTinh.Order" Role="Order" Multiplicity="1" />
+          <End Type="ChoMayTinh.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="Guid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Products">
+          <End Type="ChoMayTinh.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="ChoMayTinh.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SlideShow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Image" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Link" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="AdDate" Precision="7" />
+          <Property Type="DateTime" Name="UdDate" Precision="7" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Content1" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetProduct_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <Property Type="Int32" Name="MakerId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Link" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Image" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Color" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="OldPrice" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NewPrice" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Condition" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Origin" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Info" Nullable="true" />
+          <Property Type="DateTime" Name="AdDate" Nullable="false" />
+          <Property Type="DateTime" Name="UdDate" Nullable="false" />
+          <Property Type="Boolean" Name="IsHomePage" Nullable="false" />
+          <Property Type="String" Name="CategoryLink" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="MakerLink" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="MakerName" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetProductList_Result">
+          <Property Type="Int64" Name="RowNum" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Image" Nullable="false" />
+          <Property Type="String" Name="ProductLink" Nullable="false" MaxLength="255" />
+          <Property Type="Decimal" Name="NewPrice" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="OldPrice" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="CategoryLink" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="MakerLink" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Link" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Image" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Summary" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tag" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AdDate" Precision="7" Nullable="false" />
+          <Property Type="DateTime" Name="UdDate" Precision="7" Nullable="false" />
+          <Property Type="Boolean" Name="IsNews" Nullable="false" />
+          <Property Type="Int32" Name="MenuId" />
+          <Property Type="Boolean" Name="IsHomePage" />
+        </EntityType>
+        <ComplexType Name="GetMenu_Result">
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CategoryLink" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="MakerName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="MakerLink" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ChoMayTinhStoreContainer" CdmEntityContainer="siteEntities">
+          <EntitySetMapping Name="Makers">
+            <EntityTypeMapping TypeName="ChoMayTinh.Maker">
+              <MappingFragment StoreEntitySet="Makers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ChoMayTinh.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsHomePage" ColumnName="IsHomePage" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="MakerId" ColumnName="MakerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+                <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ChoMayTinh.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ChoMayTinh.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="IsProcessed" ColumnName="IsProcessed" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="ChoMayTinh.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SlideShows">
+            <EntityTypeMapping TypeName="ChoMayTinh.SlideShow">
+              <MappingFragment StoreEntitySet="SlideShow">
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="ChoMayTinh.Content">
+              <MappingFragment StoreEntitySet="Contents">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content1" ColumnName="Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProduct" FunctionName="ChoMayTinh.Store.GetProduct">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ChoMayTinh.GetProduct_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="MakerId" ColumnName="MakerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+                <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+                <ScalarProperty Name="IsHomePage" ColumnName="IsHomePage" />
+                <ScalarProperty Name="CategoryLink" ColumnName="CategoryLink" />
+                <ScalarProperty Name="MakerLink" ColumnName="MakerLink" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="MakerName" ColumnName="MakerName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetProductList" FunctionName="ChoMayTinh.Store.GetProductList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ChoMayTinh.GetProductList_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ProductLink" ColumnName="ProductLink" />
+                <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+                <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+                <ScalarProperty Name="CategoryLink" ColumnName="CategoryLink" />
+                <ScalarProperty Name="MakerLink" ColumnName="MakerLink" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchProduct" FunctionName="ChoMayTinh.Store.SearchProduct" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ChoMayTinh.GetProductList_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="ChoMayTinh.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="IsHomePage" ColumnName="IsHomePage" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="IsNews" ColumnName="IsNews" />
+                <ScalarProperty Name="UdDate" ColumnName="UdDate" />
+                <ScalarProperty Name="AdDate" ColumnName="AdDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetMenu" FunctionName="ChoMayTinh.Store.GetMenu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ChoMayTinh.GetMenu_Result">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryLink" ColumnName="CategoryLink" />
+                <ScalarProperty Name="MakerName" ColumnName="MakerName" />
+                <ScalarProperty Name="MakerLink" ColumnName="MakerLink" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

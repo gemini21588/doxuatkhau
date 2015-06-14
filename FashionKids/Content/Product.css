@@ -1,0 +1,111 @@
+﻿#Product {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 750px;
+    height: 480px;
+    margin-left: 10px;
+    color: #000;
+}
+#Product li {
+    float: left;
+    width: 375px;
+    height: 480px;
+    text-align: center;
+}
+#Product .product-img img {
+    width: 270px;
+    height: 480px;
+    border-radius: 6px;
+    border: 1px solid #999;
+}
+.product-info table {
+    width: 100%;
+    text-align: left;
+}
+.product-info table tr td {
+    padding: 5px;
+    border: none;
+}
+.product-info table tr td:first-child {
+    font-weight: bold;
+}
+.product-name {
+    
+}
+.product-info .price {
+    color: red;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.product-info .btn-add-to-cart {
+    margin-top: 20px;
+}
+.product-detail-title {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: #FF95A6;
+    color: #fff;
+    font-size: 1.1em;
+    text-align: left;
+}
+.product-detail {    
+    min-height: 430px;
+    padding: 5px;
+    background-color: white;
+}
+
+#ProductListSameType {
+    margin: 0px;
+    padding: 0px;    
+    list-style-type: none;
+}
+#ProductListSameType li {
+    margin-left: 15px;
+    margin-bottom: 20px;
+    background-color: #eee;
+    width: 171px;
+    height: 304px;
+    float: left;
+    border: 1px solid #777;
+    border-radius: 6px;
+    font-family: "OpenSans" !important;
+    text-align: center;
+}
+#ProductListSameType .product-img {
+    width: 171px;
+    height: 250px;
+    text-decoration: none;
+}
+#ProductListSameType .product-img img {
+    width: 171px;
+    height: 250px;
+    border-radius: 6px 6px 0px 0px;
+}
+.product-name {
+    margin: 0px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 15px;
+    color: #454545;
+    overflow: hidden;
+}
+.product-price {
+    float: left;
+    margin: 0px 0px 0px 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    overflow: hidden;
+}
+.product-old-price {
+    color: gray;
+    font-size:  0.6em;
+    text-decoration: line-through;
+}
+
+

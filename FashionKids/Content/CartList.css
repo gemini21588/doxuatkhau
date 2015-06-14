@@ -1,0 +1,53 @@
+﻿#cartList {
+    padding-left: 10px;
+}
+
+#cart-list td {
+    display: table-cell;
+    border: 1px solid #DDD;    
+    padding: 10px;
+    text-align: center;  
+    vertical-align: baseline;
+}
+
+#cart-list a {
+    font-weight: bold;
+}
+
+#cart-list th {    
+    border: 1px solid #DDD;    
+    padding: 10px;        
+}
+
+#cart-list thead {
+    background-color: #DE1E81;    
+    color: white;    
+}
+
+#cart-list tfoot tr:first-child {
+    background-color: #DE1E81;    
+    color: white;    
+}
+
+#cart-list td.cart-name {    
+}
+
+#cart-list td.cart-quantity {    
+}
+
+#cart-list td.cart-quantity input {
+    width: 20px;
+    margin: 0px; 
+    text-align: center ;
+}
+
+#cart-list td.cart-price{    
+}
+
+#cart-list td.cart-total{    
+}
+
+#cart-list img {
+    width: 108px;
+    height: 192px;
+}

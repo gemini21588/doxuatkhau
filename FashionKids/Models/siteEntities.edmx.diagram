@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="505ff57da26b4a6b896ac4b4545a6091" Name="Diagram1">
+        <EntityTypeShape EntityType="ChoMayTinh.Maker" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChoMayTinh.Product" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="ChoMayTinh.FK_Products_Makers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ChoMayTinh.Category" Width="1.5" PointX="0.9055962138369662" PointY="16.965033300670346" />
+        <AssociationConnector Association="ChoMayTinh.FK_Products_Categories" />
+        <EntityTypeShape EntityType="ChoMayTinh.Order" Width="1.5" PointX="4.4693770261804469" PointY="8.2640689053871057" />
+        <EntityTypeShape EntityType="ChoMayTinh.OrderDetail" Width="1.5" PointX="2.2227850902000372" PointY="26.57334892199065" />
+        <AssociationConnector Association="ChoMayTinh.FK_OrderDetail_Order" />
+        <AssociationConnector Association="ChoMayTinh.FK_OrderDetail_Products" />
+        <EntityTypeShape EntityType="ChoMayTinh.SlideShow" Width="1.5" PointX="9.8024089326161921" PointY="2.9521920098700525" />
+        <EntityTypeShape EntityType="ChoMayTinh.Content" Width="1.5" PointX="5.52775829729054" PointY="12.995361736507789" />
+        <EntityTypeShape EntityType="ChoMayTinh.News" Width="1.5" PointX="11.778993029044472" PointY="21.539501170413335" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

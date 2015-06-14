@@ -1,0 +1,74 @@
+﻿body {    
+    font-family: Tahoma, Geneva;    
+}
+
+#contentWrapper {
+    margin: 0 auto;
+    width: 960px;
+    margin-top: 50px;
+}
+
+#LeftColumn { 
+    position: fixed;
+    padding: 10px;   
+    width: 180px;
+    min-height: 360px;
+    margin-bottom: 30px;
+    float: left;
+}
+
+#RightColumn {    
+    width:760px;
+    min-height: 360px;
+    margin-bottom: 30px;
+    float: right;
+}
+
+thead {
+    font-weight: bold;
+}
+
+/*Product List*/
+#ProductList .product-img {
+    width: 45px;
+    height: 80px;
+}
+/**************/
+
+/*Product*/
+.btn-function button, .btn-function a {
+    width: 150px;
+    margin-bottom: 10px;
+}
+.product-detail-title {
+    height: 30px;
+    line-height: 30px;
+    background-color: #222;
+    color: #eee;
+    padding-left: 10px;
+}
+.product-detail {
+    width: 100%;
+    height: 430px;
+    text-align: center;
+}
+.product-detail textarea {
+    margin: 10px 0px 0px 0px;
+    width: 720px;
+    height: 400px;
+    padding: 10px;
+}
+/*********/
+
+/* Start Form error style */
+.field-validation-error {
+    margin-bottom: 15px;
+    display: block;
+    color: red;
+}
+
+.input-validation-error {
+    border: 1px solid #f00 !important;
+    background-color: #fee !important;
+}
+/* End Form error style */
