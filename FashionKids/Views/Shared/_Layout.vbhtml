@@ -146,18 +146,15 @@
                 <div style="text-align: center; padding: 10px;" class="cmt-border">
                     <!-- Histats.com  START  (standard)-->
                     <script type="text/javascript">document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
-                    <a href="http://www.histats.com" target="_blank" title="free tracking">
+                    <a href="http://www.histats.com" target="_blank" title="site stats">
                         <script type="text/javascript">
-                            try {
-                                Histats.start(1, 2636271, 4, 4007, 112, 61, "00011101");
-                                Histats.track_hits();
-                            } catch (err) { };
+                        try {
+                            Histats.start(1, 3079263, 4, 422, 112, 75, "00011111");
+                            Histats.track_hits();
+                        } catch (err) { };
                         </script>
                     </a>
-                    <noscript>
-                        <a href="http://www.histats.com" target="_blank">
-                            <img src="http://sstatic1.histats.com/0.gif?2636271&101" alt="free tracking" border="0"></a>
-                    </noscript>
+                    <noscript><a href="http://www.histats.com" target="_blank"><img src="http://sstatic1.histats.com/0.gif?3079263&101" alt="site stats" border="0"></a></noscript>
                     <!-- Histats.com  END  -->
                 </div>
                 @********** Quảng Cáo *********@

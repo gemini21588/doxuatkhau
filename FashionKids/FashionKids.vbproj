@@ -874,7 +874,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>43816</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/doxuatkhau</IISUrl>
+          <IISUrl>http://localhost/FashionKids</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
